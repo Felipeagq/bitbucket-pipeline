@@ -1,11 +1,8 @@
 image: alpine
-
 clone:
   lfs: true
-
 options:
   max-time: 5
-
 definitions:
   steps:
     - step: &Deploy-production
