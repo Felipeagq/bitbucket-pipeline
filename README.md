@@ -1,1 +1,21 @@
-# bitbucket-pipeline
+# bitbucket-pipeline.yml
+Es el archivo generico para hacer una pipeline en bitbucket, la cual se encarga de realizar ciertas acciones depenediendo de ciertas condiciones.
+- image:alpine , es la imagen del sistema operativo que se va a usar.
+- lfs: true, para indicar que vamos a guardar archivos de extensiones pesadas, large file storage.
+- max-time: 5, es el tiempo maximo en minutos antes de un time out.
+- definitions, se definen los pasos.
+    - steps
+        - step: &step , el identificador del paso.
+        - name: nombre, nombre del paso.
+        - image: docker:git, la imagen a usar en el paso.
+        - script: , son las lineas de codigo a crear en el sh.
+- pipelines: , las diferentes pipelines que vas a tener.
+    - custom: , el trigger de las pipelines será personalizado.
+        - stage: , activación de pipeline manual.
+            - step; , nombre del step a ejecutar.
+    - branches: , se active una pipeline cuando haya un push en una branch
+        - develop: , se especifica la rama activadora.
+            - step: , se especifica que paso se realizará.
+    - tags: , se active una pipeline con un tag.
+        - v*: , estructura del tag.
+            - step :, cual paso correr
