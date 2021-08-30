@@ -1,2 +1,1 @@
 # bitbucket-pipeline
-# bitbucket-pipeline
